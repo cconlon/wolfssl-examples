@@ -70,13 +70,13 @@ int main(int argc, char** argv)
     /* Loop while user is giving input or until EOF is read */
     while (fgets(sendLine, MAXLINE, stdin) != NULL) {
 
-	/* Attempt to send sendLine to the server */
+        /* Attempt to send sendLine to the server */
         if ( ( sendto(sockfd, sendLine, strlen(sendLine) - 1, 0, servAddr_in,
                         servLen)) == -1) {
             printf("Error in sending.\n");
         }
 
-	/* Attempt to receive recvLine from the server */
+        /* Attempt to receive recvLine from the server */
         if ( (recvlen = recvfrom(sockfd, recvLine, MAXLINE, 0, NULL, NULL))
                 == -1) {
             printf("Error in receiving.\n");

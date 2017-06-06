@@ -73,7 +73,7 @@ int main(int argc, char** argv)
     unsigned char b[MSGLEN];      /* watch for incoming messages */
     char          buff[MSGLEN];   /* the incoming message */
     char          ack[] = "I hear you fashizzle!\n";
-    
+
     /* Code for handling signals */
     struct sigaction act, oact;
     act.sa_handler = sig_handler;
@@ -220,7 +220,7 @@ int main(int argc, char** argv)
         printf("Client left cont to idle state\n");
         cont = 0;
     }
-    
+
     /* With the "continue" keywords, it is possible for the loop to exit *
      * without changing the value of cont                                */
     if (cleanup == 1) {

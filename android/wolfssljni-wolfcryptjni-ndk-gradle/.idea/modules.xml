@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wolfssljni-wolfcryptjni-ndk-gradle.iml" filepath="$PROJECT_DIR$/.idea/modules/wolfssljni-wolfcryptjni-ndk-gradle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/wolfssljni-wolfcryptjni-ndk-gradle.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/wolfssljni-wolfcryptjni-ndk-gradle.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/wolfssljni-wolfcryptjni-ndk-gradle.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/wolfssljni-wolfcryptjni-ndk-gradle.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/wolfssljni-wolfcryptjni-ndk-gradle.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/wolfssljni-wolfcryptjni-ndk-gradle.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/wolfssljni-wolfcryptjni-ndk-gradle.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/wolfssljni-wolfcryptjni-ndk-gradle.app.unitTest.iml" />
+    </modules>
+  </component>
+</project>

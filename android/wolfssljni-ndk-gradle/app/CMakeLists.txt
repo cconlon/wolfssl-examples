@@ -40,40 +40,41 @@ if ("${WOLFSSL_PKG_TYPE}" MATCHES "normal")
     # wolfssl/options.h by configure if using: "./configure --enable-jni".
     # This list may be configurable depending on use case and desired optimizations.
     add_definitions(-DWC_RSA_BLINDING -DWOLFSSL_SHA224 -DWOLFSSL_SHA384
-        -DWOLFSSL_SHA512 -DHAVE_HKDF -DNO_DSA -DHAVE_ECC
-        -DECC_SHAMIR -DWC_RSA_PSS -DWOLFSSL_BASE64_ENCODE
-        -DWOLFSSL_SHA3 -DHAVE_POLY1305 -DHAVE_CHACHA -DHAVE_HASHDRBG
-        -DHAVE_TLS_EXTENSIONS -DHAVE_SUPPORTED_CURVES -DHAVE_FFDHE_2048
-        -DWOLFSSL_TLS13 -DHAVE_EXTENDED_MASTER -DWOLFSSL_JNI
-        -DHAVE_EX_DATA -DWOLFSSL_DTLS -DOPENSSL_EXTRA -DOPENSSL_ALL
-        -DHAVE_CRL -DHAVE_OCSP -DHAVE_CRL_MONITOR
-        -DPERSIST_SESSION_CACHE -DPERSIST_CERT_CACHE -DATOMIC_USER
-        -DHAVE_PK_CALLBACKS -DWOLFSSL_CERT_EXT -DWOLFSSL_CERT_GEN
-        -DHAVE_SNI -DHAVE_ALPN -DNO_RC4 -DHAVE_ENCRYPT_THEN_MAC
-        -DNO_MD4 -DWOLFSSL_ENCRYPTED_KEYS -DHAVE_DH_DEFAULT_PARAMS
-        -DNO_ERROR_QUEUE -DWOLFSSL_EITHER_SIDE -DWC_RSA_NO_PADDING
-        -DWC_RSA_PSS -DWOLFSSL_PSS_LONG_SALT -DWOLFSSL_TICKET_HAVE_ID
-        -DWOLFSSL_ERROR_CODE_OPENSSL -DWOLFSSL_ALWAYS_VERIFY_CB
-        -DWOLFSSL_VERIFY_CB_ALL_CERTS -DWOLFSSL_EXTRA_ALERTS
-        -DHAVE_EXT_CACHE -DWOLFSSL_FORCE_CACHE_ON_TICKET
-        -DWOLFSSL_AKID_NAME -DHAVE_CTS -DNO_DES3 -DGCM_TABLE_4BIT
-        -DTFM_TIMING_RESISTANT -DECC_TIMING_RESISTANT
-        -DHAVE_AESGCM -DSIZEOF_LONG=4 -DSIZEOF_LONG_LONG=8
+            -DWOLFSSL_SHA512 -DHAVE_HKDF -DNO_DSA -DHAVE_ECC
+            -DECC_SHAMIR -DWC_RSA_PSS -DWOLFSSL_BASE64_ENCODE
+            -DWOLFSSL_SHA3 -DHAVE_POLY1305 -DHAVE_CHACHA -DHAVE_HASHDRBG
+            -DHAVE_TLS_EXTENSIONS -DHAVE_SUPPORTED_CURVES -DHAVE_FFDHE_2048
+            -DWOLFSSL_TLS13 -DHAVE_EXTENDED_MASTER -DWOLFSSL_JNI
+            -DHAVE_EX_DATA -DWOLFSSL_DTLS -DOPENSSL_EXTRA -DOPENSSL_ALL
+            -DHAVE_CRL -DHAVE_OCSP -DHAVE_CRL_MONITOR
+            -DPERSIST_SESSION_CACHE -DPERSIST_CERT_CACHE -DATOMIC_USER
+            -DHAVE_PK_CALLBACKS -DWOLFSSL_CERT_EXT -DWOLFSSL_CERT_GEN
+            -DWOLFSSL_CERT_REQ -DHAVE_SNI -DHAVE_ALPN -DNO_RC4
+            -DHAVE_ENCRYPT_THEN_MAC -DNO_MD4 -DWOLFSSL_ENCRYPTED_KEYS
+            -DHAVE_DH_DEFAULT_PARAMS -DNO_ERROR_QUEUE -DWOLFSSL_EITHER_SIDE
+            -DWC_RSA_NO_PADDING -DWC_RSA_PSS -DWOLFSSL_PSS_LONG_SALT
+            -DWOLFSSL_TICKET_HAVE_ID -DWOLFSSL_ERROR_CODE_OPENSSL
+            -DWOLFSSL_ALWAYS_VERIFY_CB -DWOLFSSL_VERIFY_CB_ALL_CERTS
+            -DWOLFSSL_EXTRA_ALERTS -DHAVE_EXT_CACHE
+            -DWOLFSSL_FORCE_CACHE_ON_TICKET -DWOLFSSL_AKID_NAME -DHAVE_CTS
+            -DNO_DES3 -DGCM_TABLE_4BIT -DTFM_TIMING_RESISTANT
+            -DECC_TIMING_RESISTANT -DHAVE_AESGCM -DSIZEOF_LONG=4
+            -DSIZEOF_LONG_LONG=8 -DWOLFSSL_CUSTOM_CONFIG
 
-        # For gethostbyname()
-        -DHAVE_NETDB_H
+            # For gethostbyname()
+            -DHAVE_NETDB_H
 
-        # Defines added for debugging. These can be removed if debug logging is not needed
-        # and will increase performance and reduce library footprint size if removed.
-        -DDEBUG_WOLFSSL -DWOLFSSL_ANDROID_DEBUG
+            # Defines added for debugging. These can be removed if debug logging is not needed
+            # and will increase performance and reduce library footprint size if removed.
+            -DDEBUG_WOLFSSL -DWOLFSSL_ANDROID_DEBUG
 
-        # Defines added for wolfCrypt test and benchmark only, may not be needed for your
-        # own application.
-        # Add -DNO_FILESYSTEM to disable file system use for wolfCrypt test, but make sure
-        # to remove this define in production applications as filesystem access is required
-        # for wolfJSSE use.
-        -DUSE_CERT_BUFFERS_2048 -DUSE_CERT_BUFFERS_256
-        -DNO_WRITE_TEMP_FILES -DNO_MAIN_DRIVER
+            # Defines added for wolfCrypt test and benchmark only, may not be needed for your
+            # own application.
+            # Add -DNO_FILESYSTEM to disable file system use for wolfCrypt test, but make sure
+            # to remove this define in production applications as filesystem access is required
+            # for wolfJSSE use.
+            -DUSE_CERT_BUFFERS_2048 -DUSE_CERT_BUFFERS_256
+            -DNO_WRITE_TEMP_FILES -DNO_MAIN_DRIVER
     )
 
 elseif("${WOLFSSL_PKG_TYPE}" MATCHES "fipsready")
@@ -108,16 +109,16 @@ elseif("${WOLFSSL_PKG_TYPE}" MATCHES "fipsready")
 
     if("${ANDROID_ABI}" MATCHES "arm64-v8a")
         # https://developer.android.com/ndk/guides/abis#arm64-v8a
-        add_definitions(-DWOLFCRYPT_FIPS_CORE_HASH_VALUE=6F4F71F467B6394FBA2BDD8B4CB136DC75DF33D0B7C02E4BC9798ECC1D317BC7)
+        add_definitions(-DWOLFCRYPT_FIPS_CORE_HASH_VALUE=9AF9BB6677AFFAF220DB2756D764D0F1C2C53C0674FBFC2E896A5A38A7E12B46)
     elseif("${ANDROID_ABI}" MATCHES "armeabi-v7a")
         # https://developer.android.com/ndk/guides/abis#v7a
-        add_definitions(-DWOLFCRYPT_FIPS_CORE_HASH_VALUE=6F4F71F467B6394FBA2BDD8B4CB136DC75DF33D0B7C02E4BC9798ECC1D317BC7)
+        add_definitions(-DWOLFCRYPT_FIPS_CORE_HASH_VALUE=9AF9BB6677AFFAF220DB2756D764D0F1C2C53C0674FBFC2E896A5A38A7E12B46)
     elseif("${ANDROID_ABI}" MATCHES "x86_64")
         # https://developer.android.com/ndk/guides/abis#86-64
-        add_definitions(-DWOLFCRYPT_FIPS_CORE_HASH_VALUE=6F4F71F467B6394FBA2BDD8B4CB136DC75DF33D0B7C02E4BC9798ECC1D317BC7)
+        add_definitions(-DWOLFCRYPT_FIPS_CORE_HASH_VALUE=9AF9BB6677AFFAF220DB2756D764D0F1C2C53C0674FBFC2E896A5A38A7E12B46)
     elseif("${ANDROID_ABI}" MATCHES "x86")
         # https://developer.android.com/ndk/guides/abis#x86
-        add_definitions(-DWOLFCRYPT_FIPS_CORE_HASH_VALUE=6F4F71F467B6394FBA2BDD8B4CB136DC75DF33D0B7C02E4BC9798ECC1D317BC7)
+        add_definitions(-DWOLFCRYPT_FIPS_CORE_HASH_VALUE=9AF9BB6677AFFAF220DB2756D764D0F1C2C53C0674FBFC2E896A5A38A7E12B46)
     endif()
 
     # Add preprocessor defines to CFLAGS, these match those placed into
@@ -181,7 +182,7 @@ elseif("${WOLFSSL_PKG_TYPE}" MATCHES "fipsready")
 
             -DNO_DSA -DNO_RC4 -DNO_MD4 -DNO_DES3 -DNO_DES3_TLS_SUITES
 
-            -DSIZEOF_LONG=4 -DSIZEOF_LONG_LONG=8
+            -DSIZEOF_LONG=4 -DSIZEOF_LONG_LONG=8 -DWOLFSSL_CUSTOM_CONFIG
 
             # For gethostbyname()
             -DHAVE_NETDB_H
@@ -222,8 +223,7 @@ elseif("${WOLFSSL_MATH_LIB}" MATCHES "spmath")
         # Not using ASM, need to use WOLFSSL_SP_MATH_ALL for SW-only implementation
         add_definitions(-DWOLFSSL_SP_MATH_ALL)
     elseif("${ANDROID_ABI}" MATCHES "x86_64")
-        # Using ASM for SP, need to use WOLFSSL_SP_MATH instead of WOLFSSL_SP_MATH_ALL
-        add_definitions(-DWOLFSSL_SP_MATH)
+        add_definitions(-DWOLFSSL_SP_MATH_ALL)
         add_definitions(-DWOLFSSL_SP_ASM -DWOLFSSL_SP_X86_64 -DWOLFSSL_SP_X86_64_ASM -DHAVE___UINT128_T)
         list(APPEND CRYPTO_SOURCES ${wolfssl_DIR}/wolfcrypt/src/sp_x86_64_asm.S)
     elseif("${ANDROID_ABI}" MATCHES "x86")
